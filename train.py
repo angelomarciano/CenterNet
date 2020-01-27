@@ -18,6 +18,8 @@ from config import system_configs
 from nnet.py_factory import NetworkFactory
 from torch.multiprocessing import Process, Queue, Pool
 from db.datasets import datasets
+import pdb
+pdb.set_trace()
 
 torch.backends.cudnn.enabled   = True
 torch.backends.cudnn.benchmark = True
@@ -66,6 +68,9 @@ def init_parallel_jobs(dbs, queue, fn, data_aug):
     return tasks
 
 def train(training_dbs, validation_db, start_iter=0):
+
+    pdb.set_trace()
+
     learning_rate    = system_configs.learning_rate
     max_iteration    = system_configs.max_iter
     pretrained_model = system_configs.pretrain
