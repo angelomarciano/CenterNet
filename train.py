@@ -69,7 +69,7 @@ def init_parallel_jobs(dbs, queue, fn, data_aug):
 
 def train(training_dbs, validation_db, start_iter=0):
 
-    pdb.set_trace()
+
 
     learning_rate    = system_configs.learning_rate
     max_iteration    = system_configs.max_iter
@@ -195,8 +195,8 @@ if __name__ == "__main__":
     # threads = max(torch.cuda.device_count() * 2, 4)
     threads = args.threads
     print("using {} threads".format(threads))
-    training_dbs  = [datasets[dataset](configs["db"], train_split) for _ in range(threads)]
-    validation_db = datasets[dataset](configs["db"], val_split)
+    training_dbs  = [datasets[dataset](configs["db"],None) for _ in range(threads)]
+    validation_db = datasets[dataset](configs["db"], None)
 
     print("system config...")
     pprint.pprint(system_configs.full)
