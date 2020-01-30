@@ -19,20 +19,20 @@ class WIDER(DETECTION):
         result_dir = system_configs.result_dir
         cache_dir  = system_configs.cache_dir
 
-        #self._split = split
-        #self._dataset = {
-            #"trainval": "trainval2014",
-            #"minival": "minival2014",
-            #"testdev": "testdev2017"
-        #}[self._split]
+        self._split = split
+        self._dataset = {
+            "train": "WIDER_train",
+            "val": "WIDER_val",
+            "testdev": "WIDER_test"
+        }[self._split]
         
-        self._coco_dir = "/content/CenterNet/data/wider"
+        self._coco_dir = "/content/CenterNet/WIDER"
 
-        self._label_dir  = "/content/CenterNet/data/wider/annotations"
-        self._label_file = os.path.join(self._label_dir, "wider_face_train_annot_coco_style.json")
-        #self._label_file = self._label_file.format(self._dataset)
+        
+        self._label_file = os.path.join(self._coco_dir,self._dataset,"annotation.json")
+        print(self._label_file)
 
-        self._image_dir  = os.path.join(self._coco_dir, "images")
+        self._image_dir  = os.path.join(self._coco_dir)
         self._image_file = os.path.join(self._image_dir, "{}")
 
         self._data = "coco"
