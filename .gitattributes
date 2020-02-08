@@ -1,0 +1,2 @@
+*.pkl filter=lfs diff=lfs merge=lfs -text
+CenterNet-52_480000.pkl filter=lfs diff=lfs merge=lfs -text
